@@ -1,0 +1,12 @@
+{
+  "razonSocial": "Mi Empresa S.A.",
+  "cuit": "20304050607",
+  "provincia": "Córdoba",
+  "localidad": "Córdoba",
+  "direccion": "Calle Falsa 123",
+  "telefono": "3511234567",
+  "email": "random@example.com",
+  "contrasena": "Password123!",
+  "establecimiento": true
+}
+

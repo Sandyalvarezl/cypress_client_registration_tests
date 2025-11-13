@@ -1,0 +1,11 @@
+{
+  "razonSocial": "",
+  "cuit": "123",
+  "provincia": "",
+  "localidad": "",
+  "direccion": "",
+  "telefono": "123",
+  "email": "bademail",
+  "contrasena": "123",
+  "establecimiento": false
+}

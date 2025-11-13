@@ -1,0 +1,23 @@
+{
+  "name": "cypress-client-registration-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandyalvarezl/cypress_client_registration_tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sandyalvarezl/cypress_client_registration_tests/issues"
+  },
+  "homepage": "https://github.com/Sandyalvarezl/cypress_client_registration_tests#readme",
+  "devDependencies": {
+    "cypress": "^15.6.0"
+  }
+}
