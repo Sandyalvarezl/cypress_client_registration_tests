@@ -1,10 +1,12 @@
 {
   "razonSocial": "",
   "cuit": "123",
-  "provincia": "",
+  "provincia": "No existe",
   "localidad": "",
   "direccion": "",
-  "telefono": "123",
-  "email": "invalid-email",
-  "contrasena": "123"
+  "telefono": "abc",
+  "email": "mal@correo",
+  "repetirEmail": "mal@correo",
+  "password": "123",
+  "repetirPassword": "123"
 }

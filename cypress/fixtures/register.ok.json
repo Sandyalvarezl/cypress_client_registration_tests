@@ -5,7 +5,8 @@
   "localidad": "Córdoba",
   "direccion": "Calle Falsa 123",
   "telefono": "3511234567",
-  "email": "",
-  "contrasena": "Password123!"
+  "email": "testpositivo@example.com",
+  "repetirEmail": "testpositivo@example.com",
+  "password": "Password123!",
+  "repetirPassword": "Password123!"
 }
-
