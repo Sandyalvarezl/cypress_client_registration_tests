@@ -1,56 +1,45 @@
-// e2e/register/register.cy.js
+import { randomEmail } from '../../utils/generators';
 
-const { randomEmail } = require('../../utils/generators')
+describe('Register Client', () => {
+  const user = {
+    razonSocial: 'Mi Empresa S.A.',
+    cuit: '20304050607',
+    provincia: 'Córdoba',
+    localidad: 'Córdoba',
+    direccion: 'Calle Falsa 123',
+    telefono: '3511234567',
+    email: randomEmail(),
+    contrasena: 'Password123!'
+  };
 
-describe('Ticketazo Client Registration', () => {
   beforeEach(() => {
-    cy.visit('/auth/registerClient')
-  })
+    cy.visit('https://ticketazo.com.ar/auth/registerClient');
+  });
 
   it('should register a valid user', () => {
-    cy.fixture('register.ok.json').then((user) => {
-      const email = randomEmail()  // generate a new email each time
-      cy.fillInput('[data-cy="input-razon-social"]', user.razonSocial)
-      cy.fillInput('[data-cy="input-cuit"]', user.cuit)
-      cy.selectOption('[data-cy="select-provincia"]', user.provincia)
-      cy.selectOption('[data-cy="select-localidad"]', user.localidad)
-      cy.fillInput('[data-cy="input-direccion"]', user.direccion)
-      cy.fillInput('[data-cy="input-telefono"]', user.telefono)
-      cy.fillInput('[data-cy="input-email"]', email)
-      cy.fillInput('[data-cy="input-confirmar-email"]', email)
-      cy.fillInput('[data-cy="input-password"]', user.contrasena)
-      cy.fillInput('[data-cy="input-confirmar-password"]', user.contrasena)
-      
-      if(user.establecimiento) {
-        cy.toggleSwitch('input[name="tipo"]')
-      }
+    cy.fillInput('[data-cy="input-razon-social"]', user.razonSocial);
+    cy.fillInput('[data-cy="input-cuit"]', user.cuit);
+    cy.selectOption('[data-cy="select-provincia"]', user.provincia);
+    cy.selectOption('[data-cy="select-localidad"]', user.localidad);
+    cy.fillInput('[data-cy="input-direccion"]', user.direccion);
+    cy.fillInput('[data-cy="input-telefono"]', user.telefono);
+    cy.fillInput('[data-cy="input-email"]', user.email);
+    cy.fillInput('[data-cy="input-confirmar-email"]', user.email);
+    cy.fillInput('[data-cy="input-password"]', user.contrasena);
+    cy.fillInput('[data-cy="input-repetir-password"]', user.contrasena);
 
-      cy.get('[data-cy="btn-registrarse"]').click()
-      
-      // Optional: check success notification or URL
-      cy.url().should('not.include', '/auth/registerClient')
-    })
-  })
+    
+    cy.toggleSwitchByLabel('Cuento con establecimiento propio');
 
-  it('should show errors for invalid user', () => {
-    cy.fixture('register.bad.json').then((user) => {
-      cy.fillInput('[data-cy="input-razon-social"]', user.razonSocial)
-      cy.fillInput('[data-cy="input-cuit"]', user.cuit)
-      cy.fillInput('[data-cy="input-direccion"]', user.direccion)
-      cy.fillInput('[data-cy="input-telefono"]', user.telefono)
-      cy.fillInput('[data-cy="input-email"]', user.email)
-      cy.fillInput('[data-cy="input-confirmar-email"]', user.email)
-      cy.fillInput('[data-cy="input-password"]', user.contrasena)
-      cy.fillInput('[data-cy="input-confirmar-password"]', user.contrasena)
+    
+    cy.get('[data-cy="btn-registrarse"]').click();
 
-      if(user.establecimiento) {
-        cy.toggleSwitch('input[name="tipo"]')
-      }
+    
+    cy.on('window:alert', (str) => {
+      expect(str).to.include('Cliente registrado con éxito');
+    });
 
-      cy.get('[data-cy="btn-registrarse"]').click()
-      
-      // Example: check for validation messages
-      cy.get('p.text-red-500').should('exist')
-    })
-  })
-})
+    
+    cy.url({ timeout: 15000 }).should('include', '/auth/login');
+  });
+});

@@ -5,8 +5,7 @@
   "localidad": "Córdoba",
   "direccion": "Calle Falsa 123",
   "telefono": "3511234567",
-  "email": "random@example.com",
-  "contrasena": "Password123!",
-  "establecimiento": true
+  "email": "",
+  "contrasena": "Password123!"
 }
 

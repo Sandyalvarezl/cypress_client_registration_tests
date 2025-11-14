@@ -5,7 +5,6 @@
   "localidad": "",
   "direccion": "",
   "telefono": "123",
-  "email": "bademail",
-  "contrasena": "123",
-  "establecimiento": false
+  "email": "invalid-email",
+  "contrasena": "123"
 }
