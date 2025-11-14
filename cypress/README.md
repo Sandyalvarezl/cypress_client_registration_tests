@@ -6,17 +6,16 @@
 ## Estructura del proyecto
 
 cypress/
-e2e/register/
-register.cy.js # Test principal de registro
-fixtures/
-register.ok.json # Datos de registro válidos
-register.bad.json # Datos de registro inválidos
-support/
-commands.js # Custom commands reutilizables
-e2e.js
-utils/
-generators.js # Funciones auxiliares opcionales
-cypress.config.js # Configuración, baseUrl, timeouts
+  e2e/register/
+    register.cy.(ts|js)
+  fixtures/
+    register.ok.json
+    register.bad.json
+  support/
+    commands.(ts|js)
+    e2e.(ts|js)
+  utils/
+    generators.(ts|js)   // opcional pero recomendado
 
 
 ## Instalación y ejecución
