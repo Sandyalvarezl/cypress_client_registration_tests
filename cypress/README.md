@@ -15,7 +15,7 @@ cypress/
     commands.(ts|js)
     e2e.(ts|js)
   utils/
-    generators.(ts|js)   // opcional pero recomendado
+    generators.(ts|js)
 
 
 ## Instalación y ejecución
